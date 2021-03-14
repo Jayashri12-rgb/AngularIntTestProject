@@ -1,0 +1,59 @@
+
+<div class="container">
+    <h2>Users List</h2>
+    <p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>  
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table">
+                <thead class="thead-light">
+                <tr>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Id</th>
+                    <th>Url</th>
+                    <th class="center">Compare</th>
+                </tr>
+                </thead>
+                <tbody> 
+                    <tr *ngFor="let user of userlistting | slice: (page-1) * pageSize : page * pageSize; index as i">
+                        <td><img width="200" alt="thumbnail" [src]="user.thumbnailUrl"></td>
+                        <td>{{user.title  | uppercase}}</td>
+                        <td>{{user.id}}</td>
+                        <td>{{user.url}}</td>
+                        <td>
+                            <div class="btnaction">
+                            <button type="button" class="btn btn-outline-primary" (click)="addUsersList(user)" (click)="toggle()">{{this.buttonName}}</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [maxSize]="5" [boundaryLinks]="true"
+            [pageSize]="pageSize" class="d-flex justify-content-center"></ngb-pagination>
+        </div>
+    </div>  
+
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table">
+                <thead class="thead-light">
+                <tr>
+                    <th>Image</th>
+                    <th>Id</th>
+                    <th>Url</th>
+                    <th>Title</th>
+                </tr>
+                </thead>
+                <tbody> 
+                    <tr *ngFor="let user of myuserslist">
+                        <td><img  class="images" src={{user.thumbnailUrl}}></td>
+                        <td>{{user.id}}</td>
+                        <td>{{user.url}}</td>
+                        <td>{{user.title}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div> 
+</div>
+  

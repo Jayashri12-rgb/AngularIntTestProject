@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angularIntTest"
+    }
+  },
+  "defaultProject": "angularIntTest",
+  "cli": {
+    "analytics": "a9872759-5746-497f-86ed-746b99a9d7e3"
+  }
 }
